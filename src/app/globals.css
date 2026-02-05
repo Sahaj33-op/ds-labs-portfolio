@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
+/* Premium DS Labs Design System */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme */
+  --background: #fafafa;
+  --background-secondary: #ffffff;
+  --foreground: #0a0a0a;
+  --foreground-muted: #525252;
+  --foreground-subtle: #737373;
+  --border: #e5e5e5;
+  --border-subtle: #f0f0f0;
+  --accent: #171717;
+  --accent-hover: #262626;
+  --accent-muted: #404040;
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5;
+  --input-bg: #ffffff;
+  --input-border: #d4d4d4;
+  --success: #16a34a;
+}
+
+.dark {
+  /* Dark Theme */
+  --background: #0a0a0a;
+  --background-secondary: #0f0f0f;
+  --foreground: #fafafa;
+  --foreground-muted: #a3a3a3;
+  --foreground-subtle: #737373;
+  --border: #262626;
+  --border-subtle: #1a1a1a;
+  --accent: #fafafa;
+  --accent-hover: #e5e5e5;
+  --accent-muted: #d4d4d4;
+  --card-bg: #141414;
+  --card-border: #262626;
+  --input-bg: #171717;
+  --input-border: #404040;
+  --success: #22c55e;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-success: var(--success);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.transition-theme {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
